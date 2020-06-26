@@ -1,0 +1,14 @@
+{
+  "name": "neo4j-todo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "module": "main.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "dependencies": {
+    "esm": "^3.2.25",
+    "neo4j-driver": "^4.1.0"
+  }
+}
