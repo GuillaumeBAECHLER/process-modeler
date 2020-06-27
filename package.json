@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "esm": "^3.2.25",
+    "express": "^4.17.1",
     "neo4j-driver": "^4.1.0"
   }
 }

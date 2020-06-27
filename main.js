@@ -1,20 +1,9 @@
-import neo4j from 'neo4j-driver';
+import express from 'express'
+import { router } from './router'
 
-const driver = neo4j.driver('neo4j://localhost', neo4j.auth.basic('neo4j', 'changeme'))
-const session = driver.session()
+const app = express()
+const port = 3000
 
-try {
-  const result = await session.writeTransaction(tx =>
-    tx.run(
-      'CREATE (a:Greeting) SET a.message = $message RETURN a.message + ", from node " + id(a)',
-      { message: 'hello, world' }
-    )
-  )
+router(app)
 
-  const singleRecord = result.records[0]
-  const greeting = singleRecord.get(0)
-
-  console.log(greeting)
-} finally {
-  await session.close()
-}
+app.listen(port, () => console.log(`App listening at http://localhost:${port}`))
